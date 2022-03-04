@@ -1,0 +1,96 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>Login 10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <link href="~/loginSource/frontCss.css" rel="stylesheet" />
+    <link href="~/loginSource/fontswesomeCss.css" rel="stylesheet" />
+    <script src="~/loginSource/papporOffline.js"></script>
+    <script src="~/loginSource/bootstrapOffline.js"></script>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+
+<body class="img js-fullheight" style="background-image: url(/images/bg.jpg); ">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Login #10</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center">Have an account?</h3>
+                        <div action="#" class="signin-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username" name="" id="Username" required>
+                            </div>
+                            <div class="form-group">
+                                <input id="password" type="password" class="form-control" placeholder="Password" name="password" required>
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" name="Login" id="Login" class="form-control btn btn-primary submit px-3">Sign In</button>
+                            </div>
+                            <div class="form-group d-md-flex">
+
+                                <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary">
+                                        Remember Me
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="#" style="color: #fff">Forgot Password</a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+                        <div class="social d-flex text-center">
+                            <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Sign Up</a>
+                            @*<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="~/js/main.js"></script>
+    <script src="~/js/popper.js"></script>
+
+    <script type="text/jscript">
+        $(document).ready(function () {
+            $("#Login").click(function () {
+                debugger;
+                var name = $("#Username").val();
+                var password = $("#password").val();
+                var objUser = {
+                    name: name,
+                    password: password
+                }
+
+                $.ajax({
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    url: "/Home/Login",
+                    type: "POST",
+                    data: JSON.stringify({ objUser: objUser }),
+                    success: function (obj) {
+
+                    }
+                });
+            });
+        });
+
+    </script>
+
+
+</body>
+</html>
+

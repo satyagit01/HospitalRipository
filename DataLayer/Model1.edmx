@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Hospital_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Out_Door">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Outer_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Patient_Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Docter_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="100" />
+          <Property Name="Docter_fee" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Reg_fee" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Other_dorfee" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Office" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Patient">
+          <Key>
+            <PropertyRef Name="Patient_Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Patient_Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patient_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patient_DOJ" Type="datetime" />
+          <Property Name="Patient_DOB" Type="datetime" />
+          <Property Name="Patient_Age" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Patient_Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="Patient_MobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patient_EmailId" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="sex" Type="nvarchar" MaxLength="10" />
+          <Property Name="Hight" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="nvarchar" MaxLength="50" />
+          <Property Name="BP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Care_of" Type="nvarchar" MaxLength="50" />
+          <Property Name="Care_of_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Creat_Date" Type="datetime" />
+          <Property Name="Update_Date" Type="datetime" />
+          <Property Name="User_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Out_Door_Tbl_Patient">
+          <End Role="Tbl_Patient" Type="Self.Tbl_Patient" Multiplicity="1" />
+          <End Role="Out_Door" Type="Self.Out_Door" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Patient">
+              <PropertyRef Name="Patient_Id" />
+            </Principal>
+            <Dependent Role="Out_Door">
+              <PropertyRef Name="Patient_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Hospital_DBModelStoreContainer">
+          <EntitySet Name="Out_Door" EntityType="Self.Out_Door" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Patient" EntityType="Self.Tbl_Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Out_Door_Tbl_Patient" Association="Self.FK_Out_Door_Tbl_Patient">
+            <End Role="Tbl_Patient" EntitySet="Tbl_Patient" />
+            <End Role="Out_Door" EntitySet="Out_Door" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Hospital_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Out_Door">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Outer_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Patient_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Docter_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Docter_fee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Reg_fee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Other_dorfee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Office" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tbl_Patient" Relationship="Self.FK_Out_Door_Tbl_Patient" FromRole="Out_Door" ToRole="Tbl_Patient" />
+        </EntityType>
+        <EntityType Name="Tbl_Patient">
+          <Key>
+            <PropertyRef Name="Patient_Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Patient_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patient_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patient_DOJ" Type="DateTime" Precision="3" />
+          <Property Name="Patient_DOB" Type="DateTime" Precision="3" />
+          <Property Name="Patient_Age" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Patient_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Patient_MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patient_EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Hight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Care_of" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Care_of_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Out_Door" Relationship="Self.FK_Out_Door_Tbl_Patient" FromRole="Tbl_Patient" ToRole="Out_Door" />
+        </EntityType>
+        <EntityType Name="Tbl_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Creat_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <Property Name="User_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Out_Door_Tbl_Patient">
+          <End Role="Tbl_Patient" Type="Self.Tbl_Patient" Multiplicity="1" />
+          <End Role="Out_Door" Type="Self.Out_Door" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Patient">
+              <PropertyRef Name="Patient_Id" />
+            </Principal>
+            <Dependent Role="Out_Door">
+              <PropertyRef Name="Patient_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Hospital_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Out_Door" EntityType="Self.Out_Door" />
+          <EntitySet Name="Tbl_Patient" EntityType="Self.Tbl_Patient" />
+          <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" />
+          <AssociationSet Name="FK_Out_Door_Tbl_Patient" Association="Self.FK_Out_Door_Tbl_Patient">
+            <End Role="Tbl_Patient" EntitySet="Tbl_Patient" />
+            <End Role="Out_Door" EntitySet="Out_Door" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Hospital_DBModelStoreContainer" CdmEntityContainer="Hospital_DBEntities">
+          <EntitySetMapping Name="Out_Door">
+            <EntityTypeMapping TypeName="Hospital_DBModel.Out_Door">
+              <MappingFragment StoreEntitySet="Out_Door">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Outer_ID" ColumnName="Outer_ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Patient_Id" ColumnName="Patient_Id" />
+                <ScalarProperty Name="Docter_Name" ColumnName="Docter_Name" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Docter_fee" ColumnName="Docter_fee" />
+                <ScalarProperty Name="Reg_fee" ColumnName="Reg_fee" />
+                <ScalarProperty Name="Other_dorfee" ColumnName="Other_dorfee" />
+                <ScalarProperty Name="Office" ColumnName="Office" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Patient">
+            <EntityTypeMapping TypeName="Hospital_DBModel.Tbl_Patient">
+              <MappingFragment StoreEntitySet="Tbl_Patient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Patient_Id" ColumnName="Patient_Id" />
+                <ScalarProperty Name="Patient_Name" ColumnName="Patient_Name" />
+                <ScalarProperty Name="Patient_DOJ" ColumnName="Patient_DOJ" />
+                <ScalarProperty Name="Patient_DOB" ColumnName="Patient_DOB" />
+                <ScalarProperty Name="Patient_Age" ColumnName="Patient_Age" />
+                <ScalarProperty Name="Patient_Address" ColumnName="Patient_Address" />
+                <ScalarProperty Name="Patient_MobileNo" ColumnName="Patient_MobileNo" />
+                <ScalarProperty Name="Patient_EmailId" ColumnName="Patient_EmailId" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="Hight" ColumnName="Hight" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="BP" ColumnName="BP" />
+                <ScalarProperty Name="Care_of" ColumnName="Care_of" />
+                <ScalarProperty Name="Care_of_Name" ColumnName="Care_of_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_User">
+            <EntityTypeMapping TypeName="Hospital_DBModel.Tbl_User">
+              <MappingFragment StoreEntitySet="Tbl_User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Creat_Date" ColumnName="Creat_Date" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="User_type" ColumnName="User_type" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

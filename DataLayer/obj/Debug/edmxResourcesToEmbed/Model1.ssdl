@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hospital_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Out_Door">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Outer_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Patient_Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Docter_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="100" />
+    <Property Name="Docter_fee" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Reg_fee" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Other_dorfee" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Office" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Patient">
+    <Key>
+      <PropertyRef Name="Patient_Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Patient_Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patient_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patient_DOJ" Type="datetime" />
+    <Property Name="Patient_DOB" Type="datetime" />
+    <Property Name="Patient_Age" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Patient_Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Patient_MobileNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Patient_EmailId" Type="nvarchar" MaxLength="50" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="sex" Type="nvarchar" MaxLength="10" />
+    <Property Name="Hight" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="nvarchar" MaxLength="50" />
+    <Property Name="BP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Care_of" Type="nvarchar" MaxLength="50" />
+    <Property Name="Care_of_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Creat_Date" Type="datetime" />
+    <Property Name="Update_Date" Type="datetime" />
+    <Property Name="User_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Out_Door_Tbl_Patient">
+    <End Role="Tbl_Patient" Type="Self.Tbl_Patient" Multiplicity="1" />
+    <End Role="Out_Door" Type="Self.Out_Door" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Patient">
+        <PropertyRef Name="Patient_Id" />
+      </Principal>
+      <Dependent Role="Out_Door">
+        <PropertyRef Name="Patient_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Hospital_DBModelStoreContainer">
+    <EntitySet Name="Out_Door" EntityType="Self.Out_Door" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Patient" EntityType="Self.Tbl_Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Out_Door_Tbl_Patient" Association="Self.FK_Out_Door_Tbl_Patient">
+      <End Role="Tbl_Patient" EntitySet="Tbl_Patient" />
+      <End Role="Out_Door" EntitySet="Out_Door" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

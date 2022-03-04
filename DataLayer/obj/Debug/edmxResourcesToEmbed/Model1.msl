@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Hospital_DBModelStoreContainer" CdmEntityContainer="Hospital_DBEntities">
+    <EntitySetMapping Name="Out_Door">
+      <EntityTypeMapping TypeName="Hospital_DBModel.Out_Door">
+        <MappingFragment StoreEntitySet="Out_Door">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Outer_ID" ColumnName="Outer_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Patient_Id" ColumnName="Patient_Id" />
+          <ScalarProperty Name="Docter_Name" ColumnName="Docter_Name" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Docter_fee" ColumnName="Docter_fee" />
+          <ScalarProperty Name="Reg_fee" ColumnName="Reg_fee" />
+          <ScalarProperty Name="Other_dorfee" ColumnName="Other_dorfee" />
+          <ScalarProperty Name="Office" ColumnName="Office" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Patient">
+      <EntityTypeMapping TypeName="Hospital_DBModel.Tbl_Patient">
+        <MappingFragment StoreEntitySet="Tbl_Patient">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Patient_Id" ColumnName="Patient_Id" />
+          <ScalarProperty Name="Patient_Name" ColumnName="Patient_Name" />
+          <ScalarProperty Name="Patient_DOJ" ColumnName="Patient_DOJ" />
+          <ScalarProperty Name="Patient_DOB" ColumnName="Patient_DOB" />
+          <ScalarProperty Name="Patient_Age" ColumnName="Patient_Age" />
+          <ScalarProperty Name="Patient_Address" ColumnName="Patient_Address" />
+          <ScalarProperty Name="Patient_MobileNo" ColumnName="Patient_MobileNo" />
+          <ScalarProperty Name="Patient_EmailId" ColumnName="Patient_EmailId" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="Hight" ColumnName="Hight" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="BP" ColumnName="BP" />
+          <ScalarProperty Name="Care_of" ColumnName="Care_of" />
+          <ScalarProperty Name="Care_of_Name" ColumnName="Care_of_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_User">
+      <EntityTypeMapping TypeName="Hospital_DBModel.Tbl_User">
+        <MappingFragment StoreEntitySet="Tbl_User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Creat_Date" ColumnName="Creat_Date" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="User_type" ColumnName="User_type" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

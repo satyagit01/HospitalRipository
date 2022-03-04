@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hospital_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Out_Door">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Outer_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Patient_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Docter_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Docter_fee" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Reg_fee" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Other_dorfee" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Office" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Patient" Relationship="Self.FK_Out_Door_Tbl_Patient" FromRole="Out_Door" ToRole="Tbl_Patient" />
+  </EntityType>
+  <EntityType Name="Tbl_Patient">
+    <Key>
+      <PropertyRef Name="Patient_Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Patient_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patient_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patient_DOJ" Type="DateTime" Precision="3" />
+    <Property Name="Patient_DOB" Type="DateTime" Precision="3" />
+    <Property Name="Patient_Age" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Patient_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Patient_MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patient_EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Hight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Care_of" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Care_of_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Out_Door" Relationship="Self.FK_Out_Door_Tbl_Patient" FromRole="Tbl_Patient" ToRole="Out_Door" />
+  </EntityType>
+  <EntityType Name="Tbl_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Creat_Date" Type="DateTime" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Precision="3" />
+    <Property Name="User_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Out_Door_Tbl_Patient">
+    <End Role="Tbl_Patient" Type="Self.Tbl_Patient" Multiplicity="1" />
+    <End Role="Out_Door" Type="Self.Out_Door" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Patient">
+        <PropertyRef Name="Patient_Id" />
+      </Principal>
+      <Dependent Role="Out_Door">
+        <PropertyRef Name="Patient_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Hospital_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Out_Door" EntityType="Self.Out_Door" />
+    <EntitySet Name="Tbl_Patient" EntityType="Self.Tbl_Patient" />
+    <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" />
+    <AssociationSet Name="FK_Out_Door_Tbl_Patient" Association="Self.FK_Out_Door_Tbl_Patient">
+      <End Role="Tbl_Patient" EntitySet="Tbl_Patient" />
+      <End Role="Out_Door" EntitySet="Out_Door" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
