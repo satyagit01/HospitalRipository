@@ -10,3 +10,15 @@ C:\Users\SUSANTA\source\repos\Hospital_Management\DataLayer\obj\Debug\DataLayer.
 C:\Users\SUSANTA\source\repos\Hospital_Management\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
 C:\Users\SUSANTA\source\repos\Hospital_Management\DataLayer\obj\Debug\DataLayer.dll
 C:\Users\SUSANTA\source\repos\Hospital_Management\DataLayer\obj\Debug\DataLayer.pdb
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\bin\Debug\DataLayer.dll.config
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\bin\Debug\DataLayer.dll
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\bin\Debug\DataLayer.pdb
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\bin\Debug\EntityFramework.dll
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\bin\Debug\EntityFramework.xml
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\obj\Debug\DataLayer.dll
+D:\zData\hospital\finalGit01\HospitalRipository\DataLayer\obj\Debug\DataLayer.pdb
