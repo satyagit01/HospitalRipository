@@ -12,7 +12,7 @@ namespace Hospital_Management.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "satya";
+            ViewBag.Message = "satya2";
             return View();
         }
 
